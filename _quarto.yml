@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  title: "Data Science Blog"
+  output-dir: docs
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Blog"
+        href: posts/data-leakage.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+

@@ -1,0 +1,11 @@
+---
+title: "Data Science Blog"
+author: "Ashifa Hassam"
+date: 2026-01-16
+---
+
+# Welcome to My Data Science Blog
+
+Explore posts, tutorials, and insights on data science topics like machine learning, data leakage, and predictive analytics.
+
+Check out my latest post: [Why Your Model Performs Too Well: Understanding Data Leakage](posts/data-leakage.qmd)
