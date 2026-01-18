@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "posts/data-leakage.html",
+    "href": "posts/data-leakage.html",
+    "title": "Why Your Model Performs Too Well: Understanding Data Leakage",
+    "section": "",
+    "text": "Have you ever trained a machine learning model that performed perfectly in testing, then failed in the real world? Perhaps your model scored 98% accuracy during testing, but when deployed on new data, performance dropped drastically. This frustrating scenario often happens because of a subtle, yet serious mistake: data leakage.\nData leakage is one of the most common pitfalls in data science. It can make models appear more powerful than they actually are, leading to false confidence, wasted resources, or even costly mistakes when deployed. In this post, I will explain what data leakage is, explore the types and causes, provide examples, and show how to prevent it. By the end, you will have a clear understanding of how to keep your models reliable and trustworthy."
+  },
+  {
+    "objectID": "posts/data-leakage.html#introduction",
+    "href": "posts/data-leakage.html#introduction",
+    "title": "Why Your Model Performs Too Well: Understanding Data Leakage",
+    "section": "",
+    "text": "Have you ever trained a machine learning model that performed perfectly in testing, then failed in the real world? Perhaps your model scored 98% accuracy during testing, but when deployed on new data, performance dropped drastically. This frustrating scenario often happens because of a subtle, yet serious mistake: data leakage.\nData leakage is one of the most common pitfalls in data science. It can make models appear more powerful than they actually are, leading to false confidence, wasted resources, or even costly mistakes when deployed. In this post, I will explain what data leakage is, explore the types and causes, provide examples, and show how to prevent it. By the end, you will have a clear understanding of how to keep your models reliable and trustworthy."
+  },
+  {
+    "objectID": "posts/data-leakage.html#what-is-data-leakage",
+    "href": "posts/data-leakage.html#what-is-data-leakage",
+    "title": "Why Your Model Performs Too Well: Understanding Data Leakage",
+    "section": "What is Data Leakage?",
+    "text": "What is Data Leakage?\nIn machine learning, data leakage occurs when your model has access to information during training that it would not realistically have when making predictions in the real world. In other words, your model “cheats” by learning patterns that are impossible to know ahead of time. This may sound simple, but it can happen in subtle ways, such as including future information in your features or accidentally mixing training and testing data. The result is an inflated performance metric during development, which can be disastrous when the model is deployed.\nKey takeaway: Data leakage makes your model look great on paper, but it does not generalize to real world data."
+  },
+  {
+    "objectID": "posts/data-leakage.html#common-types-of-data-leakage",
+    "href": "posts/data-leakage.html#common-types-of-data-leakage",
+    "title": "Why Your Model Performs Too Well: Understanding Data Leakage",
+    "section": "Common Types of Data Leakage",
+    "text": "Common Types of Data Leakage\nThese are some of the main ways data leakage can happen:\n\n1. Train-Test Contamination\nThis occurs when the same data ends up in both the training and testing sets. For instance, imagine shuffling a dataset incorrectly or scaling features before splitting. Your model “sees” test data during training, leading to artifically high evaluation scores. (IBM 2026)\nExample: Fitting transformations on the entire dataset, including test data.\n\n\n2. Target Leakage\nTarget leakage occurs when a feature includes information that would only be available after the target outcome happens. This type of leakage is especially common in datasets with timestamps or events. (IBM 2026)\nExample: Predicting hospital readmissions using a feature “Number of Medications After Discharge” would be target leakage because this information is only known after the patient leaves the hospital.\n\n\n3. Temporal/Time Based Leakage\nTime-series and sequential data are prone to leakage if future information is used to predict the past. (Wikipedia contributors 2026)\nExample: Predicting stock prices using feeatures that include future market movements. Even if it seems like a valid feature, the model is essentially “peaking into the future.”\n\n\n4. Preprocessing Leakage\nSome preprocessing steps can inadvertently leak information if applied before the train-test split. (SailPoint 2024)\nExample: Feature selection using the whole dataset."
+  },
+  {
+    "objectID": "posts/data-leakage.html#detecting-data-leakage",
+    "href": "posts/data-leakage.html#detecting-data-leakage",
+    "title": "Why Your Model Performs Too Well: Understanding Data Leakage",
+    "section": "Detecting Data Leakage",
+    "text": "Detecting Data Leakage\nHow do you know if your model is suffering from data leakage? Below are some indicators:\n\nUnrealistically high performance: 99% accuracy on small or messy datasets is suspicious.\nPerformance drops significantly on new data: Model would be overfitting because it “cheated”.\nFeature importance surprises: Features that did not add much are suddenly highly predcitive."
+  },
+  {
+    "objectID": "posts/data-leakage.html#preventing-data-leakage",
+    "href": "posts/data-leakage.html#preventing-data-leakage",
+    "title": "Why Your Model Performs Too Well: Understanding Data Leakage",
+    "section": "Preventing Data Leakage",
+    "text": "Preventing Data Leakage\nHere are some best practices to prevent data leakage:\n\nProper Train/Test Splits: Split your dataset before any preprocessing.\nUse Pipelines: Scikit-learn pipelines ensure transformations only fit the training set.\nFeature Review: Examine each feature for potential post event or future information.\nTime Aware Splitting: For time-series data, always train on past data and test on future data.\nCross-Validation Care: Make sure folds do not leak information across training/testing partitions."
+  },
+  {
+    "objectID": "posts/data-leakage.html#why-data-leakage-matters-in-the-real-world",
+    "href": "posts/data-leakage.html#why-data-leakage-matters-in-the-real-world",
+    "title": "Why Your Model Performs Too Well: Understanding Data Leakage",
+    "section": "Why Data Leakage Matters in the Real World",
+    "text": "Why Data Leakage Matters in the Real World\nData leakage is not just a theoretical problem, it can have real consequences:\n\nBusiness: Inflated model performance can lead to poor decisions or wasted budget.\nHealthcare: Misleading predictions in patient risk could have serious outcomes.\nFinance: Models predicting fraud or defaults could fail, causing losses.\nReputation: Publishing flawed models could damage credibility."
+  },
+  {
+    "objectID": "posts/data-leakage.html#conclusion",
+    "href": "posts/data-leakage.html#conclusion",
+    "title": "Why Your Model Performs Too Well: Understanding Data Leakage",
+    "section": "Conclusion",
+    "text": "Conclusion\nData leakage is often subtle but highly damaging. It can enter models through incorrect splits, post event features, or improper preprocessing. By following careful best practices including splitting data correctly, reviewing features, and using pipelines, you can build models that properly generalize and can be trusted."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Science Blog",
+    "section": "",
+    "text": "Welcome to My Data Science Blog\nExplore posts, tutorials, and insights on data science topics like machine learning, data leakage, and predictive analytics.\nCheck out my latest post: Why Your Model Performs Too Well: Understanding Data Leakage"
+  }
+]

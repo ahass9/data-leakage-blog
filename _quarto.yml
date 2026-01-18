@@ -1,9 +1,9 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Data Science Blog"
-  output-dir: docs
   navbar:
     left:
       - text: "Home"
@@ -20,6 +20,7 @@ format:
       - brand
     css: styles.css
     toc: true
+
 
 
 
